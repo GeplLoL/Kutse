@@ -1,10 +1,12 @@
 ﻿using kutse.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace kutse.Controllers
 {
@@ -12,14 +14,66 @@ namespace kutse.Controllers
     {
         public ActionResult Index()
         {
+            int hour = DateTime.Now.Hour;
+            //ViewBag.Greeting = hour < 10 ? "Tere hommikust" : "Tere päevast";//hour<10? = if(hour < 10) / : = else
+            if(hour < 10)
+            {
+                ViewBag.Greeting = "Tere hommikust";
+            }
+            else if(hour > 10)
+            {
+                ViewBag.Greeting = "Tere päevast";
+            }
+            else if(hour > 17)
+            {
+                ViewBag.Greeting = "Tere õhtust";
+            }
+            else if(hour > 21 && hour < 4)
+            {
+                ViewBag.Greeting = "Head ööd";
+            }
             return View();
         }
 
         public ActionResult kutse()
         {
             int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour<10? "Tere hommikust" : "Tere päevast";//hour<10? = if(hour < 10) / : = else
-            ViewBag.Message = "Ootan sind oma peole. Tule kindlasti! Ootan sind!";
+            //ViewBag.Greeting = hour<10? "Tere hommikust" : "Tere päevast";//hour<10? = if(hour < 10) / : = else
+            if (hour < 10)
+            {
+                ViewBag.Greeting = "Tere hommikust";
+            }
+            else if (hour > 10)
+            {
+                ViewBag.Greeting = "Tere päevast";
+            }
+            else if (hour > 17)
+            {
+                ViewBag.Greeting = "Tere õhtust";
+            }
+            else if (hour > 21 && hour < 4)
+            {
+                ViewBag.Greeting = "Head ööd";
+            }
+
+            int month = DateTime.Now.Month;
+            switch (month)
+            {
+                case 1: ViewBag.Message += "Uus aasta! 1 Jaanuar"; break;
+                case 2: ViewBag.Message += "Iseseisvuspäev! 24 Veebruar"; break;
+                case 3: ViewBag.Message += "Naistepäev! 8 Märts"; break;
+                case 4: ViewBag.Message += "Naljapäev! 1 Aprill"; break;
+                case 5: ViewBag.Message += "Kevadpüha! 1 Mai"; break;
+                case 6: ViewBag.Message += "Jaanipäev! 24 Juuni"; break;
+                case 7: ViewBag.Message += "Rahvusvaheline malepäev! 4 Juuli"; break;
+                case 8: ViewBag.Message += "Taasiseseisvumispäev! 20 August"; break;
+                case 9: ViewBag.Message += "Teadmistepäev! 1 September"; break;
+                case 10: ViewBag.Message += "Omavalitsuspäev! 1 Oktoober"; break;
+                case 11: ViewBag.Message += "Isadepäev! 10 November"; break;
+                case 12: ViewBag.Message += "Jõulud! 24-26 Detsembrid"; break;
+            }
+            ViewBag.Month = "month" + month + ".jpg";
+
             return View();
         }
 

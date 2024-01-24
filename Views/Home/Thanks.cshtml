@@ -3,6 +3,22 @@
     ViewBag.Title = "Thanks";
 }
 
+<head>
+    <script>
+        function meeldetust() {
+                @{
+                    WebMail.SmtpServer = "smtp.gmail.com";
+                    WebMail.SmtpPort = 587;
+                    WebMail.EnableSsl= true;
+                    WebMail.UserName = "nepridumalnazvaniepocht@gmail.com";
+                    WebMail.Password= "rnlt mfvn ftjb usxu";
+                    WebMail.From = "nepridumalnazvaniepocht@gmail.com";
+                    WebMail.Send(@Model.Email, "Meeldetuletus!", @Model.Name + ", ära unusta. Pidu toimub 12.03.20! Sind ootavad väga!");
+                }
+            }
+    </script>
+</head>
+
 <h2>Thanks</h2>
 
 <div>
@@ -13,14 +29,19 @@
     {
         @:Ootame sind kallis sõber!
         <p>
-            <img src="~/Images/kutse.jpg" alt="Alternate Text" />
+            <img src="~/Images/thankYou.jpg" alt="Alternate Text" />
         </p>
+        <form action="">
+            <input type="button" onclick="meeldetust" value="Saada meeldetust" />
+        </form>
+        <br />
+
     }
     else
     {
         @:Väga kurb uudis. Näeme hiljem!
         <p>
-            <img src="~/Images/kutse.jpg" alt="Alternate Text" />
+            <img src="~/Images/sadsmile.jpg" alt="Alternate Text" />
         </p>
     }
     @ViewBag.Message @* отчет об отправки письма *@

@@ -16,7 +16,7 @@ namespace kutse.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Sisesta telefoni number")]
-        [RegularExpression(@"\+372[0-9]{8}.+", ErrorMessage = "Vale number")]
+        [RegularExpression(@"\+372\d{8}", ErrorMessage = "Vale number")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Sisesta oma valik")]
