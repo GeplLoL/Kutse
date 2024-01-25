@@ -38,7 +38,6 @@ namespace kutse.Controllers
         public ActionResult kutse()
         {
             int hour = DateTime.Now.Hour;
-            //ViewBag.Greeting = hour<10? "Tere hommikust" : "Tere päevast";//hour<10? = if(hour < 10) / : = else
             if (hour < 10)
             {
                 ViewBag.Greeting = "Tere hommikust";
@@ -59,7 +58,7 @@ namespace kutse.Controllers
             int month = DateTime.Now.Month;
             switch (month)
             {
-                case 1: ViewBag.Message += "Uus aasta! 1 Jaanuar"; break;
+                case 1: ViewBag.Message += "Head uus aasta! 1 Jaanuar"; break;
                 case 2: ViewBag.Message += "Iseseisvuspäev! 24 Veebruar"; break;
                 case 3: ViewBag.Message += "Naistepäev! 8 Märts"; break;
                 case 4: ViewBag.Message += "Naljapäev! 1 Aprill"; break;
@@ -130,6 +129,14 @@ namespace kutse.Controllers
             ViewBag.Message = "Teie kontaktileht.";
 
             return View();
+        }
+        
+        GuestContext db = new GuestContext();
+
+        public ActionResult Guests()
+        {
+            IEnumerable<Guest> guests = db.Guests;
+            return View(guests);
         }
     }
 }
