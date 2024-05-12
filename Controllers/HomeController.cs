@@ -106,9 +106,9 @@ namespace kutse.Controllers
                 WebMail.SmtpServer = "smtp.gmail.com";
                 WebMail.SmtpPort = 587;
                 WebMail.EnableSsl = true;
-                WebMail.UserName = "nepridumalnazvaniepocht@gmail.com";
-                WebMail.Password = "rnlt mfvn ftjb usxu";
-                WebMail.From = "nepridumalnazvaniepocht@gmail.com";
+                WebMail.UserName = "pinkod2222@gmail.com";
+                WebMail.Password = "kjof dgzu dxwt xpqn";
+                WebMail.From = "pinkod2222@gmail.com";
                 WebMail.Send(guest.Email, "Vastus kutsele", guest.Name + " vastas " + ((guest.WillAttend ?? false) ? "tuleb peole " : "ei tule peole"));
                 ViewBag.Message = "Kiri on saatnud!";
             }
@@ -116,8 +116,6 @@ namespace kutse.Controllers
             {
                 ViewBag.Message = "Mul on kahju! Ei saa kirja saada!!!";
             }
-
-
         }
 
         public ActionResult About()
